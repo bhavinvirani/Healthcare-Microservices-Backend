@@ -1,0 +1,33 @@
+server:
+  port: 4001
+
+logging:
+  level:
+    root: info
+
+grpc:
+  server:
+    port: 8001
+
+spring:
+  application:
+    name: patient-service
+  kafka:
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+
+
+#  datasource:
+#    url: jdbc:postgresql://localhost:5002/db
+#    username: admin
+#    password: admin
+#    driver-class-name: org.postgresql.Driver
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQLDialect

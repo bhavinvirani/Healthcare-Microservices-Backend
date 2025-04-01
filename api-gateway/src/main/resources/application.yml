@@ -1,0 +1,44 @@
+server:
+  port: 4005
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        ## REST CLIENT --> http://localhost:4005/api/patients
+        ## API GATEWAY  --> http://localhost:4001/patients
+        ## PATIENT SERVICE (SPRING BOOT APP) --> /patients -> patient's Array
+        - id: patient-service-route
+          uri: http://patient-service:4001
+          predicates:
+              - Path=/api/patients/**
+          filters:
+            - StripPrefix=1
+            - JwtValidation
+
+        - id: api-docs-patients-route
+          uri: http://patient-service:4001
+          predicates:
+              - Path=/api-docs/patients
+          filters:
+            - RewritePath=/api-docs/patients,/v3/api-docs
+
+        - id: billing-service-route
+          uri: http://billing-service:4002
+          predicates:
+              - Path=/api/billing/**
+          filters:
+            - StripPrefix=1
+
+        - id: auth-service-route
+          uri: http://auth-service:4006
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+
+
+
+

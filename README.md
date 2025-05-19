@@ -1,7 +1,8 @@
 <div align="center">
   <br>
-  <img alt="Healthcare Backend" src="![image](https://github.com/user-attachments/assets/d5f4f99b-0027-4f00-afb8-b10cee2acd31)" width="120px">
+  <img alt="Healthcare Backend" src="https://github.com/user-attachments/assets/d5f4f99b-0027-4f00-afb8-b10cee2acd31" width="120px">
 </div>
+
 
 # Healthcare Microservices Backend
 
